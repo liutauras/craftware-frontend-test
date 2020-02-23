@@ -2,3 +2,9 @@
 $grid-gutter-width: 10px;
 $font-size-base: 16px;
 $headings-font-weight: 800;
+
+// These are the defaults, but you can override any values
+$font-family-sans-serif: 'Montserrat', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-family-serif:      'Montserrat', Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:       $font-family-sans-serif !default;

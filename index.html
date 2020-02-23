@@ -8,6 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,500,600,700,800,900&display=swap" rel="stylesheet">
+
 
     <title>Jumbotron Template for Bootstrap</title>
 
@@ -16,6 +18,7 @@
 
     <!-- Custom styles for this template -->
     <link href="static/css/mystyle.css" rel="stylesheet">
+    <link href="static/css/nouislider.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -25,33 +28,100 @@
   </head>
 
   <body>
-
-    <!-- top slider with  -->
-    <div class="header_box">
-      <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+    <div class="container-fluid">
+      <!-- top slider with  -->
+      <div id="header_box">
+          <div class="header_quickForm_box">
+            <div class="row">
+              <div class="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-4">
+                <div class="header_quickForm position-absolute text-center">
+                  <h2 class="header_quickForm_title">Lorem ipsum dolor sit amet</h2>
+                  <p class="header_quickForm_text">Lorem ipsum dolor sit amet consectetur</p>
+                  
+                  <div class="header_slider row">
+                    <div class="header_sliderLoan col-sm-8">
+                      <div id="slider-step-amount"></div>
+                    </div>
+                    <div class="header_sliderLoanValue col-sm-4">
+                      <div id="slider-step-amount-value"></div>
+                    </div>
+                  </div>
+                  <div class="header_slider row">
+                    <div class="header_sliderDuration col-sm-8">
+                      <div id="slider-step-duration"></div>
+                    </div>
+                    <div class="header_sliderDurationValue col-sm-4">
+                      <div id="slider-step-duration-value"></div>
+                    </div>
+                  </div>
+                  <div class="header_slider_button_box row">
+                    <div class="col-sm-6"><a class="btn btn-primary btn-lg header_button_apply_now" href="#" role="button">Apply Now</a></div>
+                    <div class="col-sm-6"><p>Lorem ipsum dolem lorem</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <div class="header-video-box position-absolute">
+            <div class="row">
+              <div class="col-sm-offset-5 col-sm-8 col-md-offset-5 col-md-4">
+                <div class="header-video "></div>
+              </div>
+            </div>
+          </div>
+          <div class="header_imageCloud image"></div>
+          <div class="header_imageBike image"></div>
+          <div class="header_imageBench image"></div>
+      </div>
+      
+      <div class="top_message">
+          
+          <div class="container-fluid text-center top_message_box">
+              <p>Dolo lorem ipsum Dolo lorem ipsum Dolo lorem ipsum Dolo lorem ipsum Dolo lorem ipsum Dolo lorem ipsum Dolo lorem ipsum Dolo lorem ipsum Dolo lorem ipsum Dolo lorem ipsumDolo lorem</p>
+          </div>
       </div>
     </div>
 
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-12">
           <h2>Heading</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <ul->
+            <li>V</li>
+            <li>adasd asd asd</li>
+          </ul->
+        </div>
+        <div class="col-md-6">
+          <ul->
+            <li>V</li>
+            <li>adasd asd asd</li>
+          </ul->
+        </div>
+      </div>
+      <div class="loan-calc-result-box">
+        <div class="row">
+          <h3>Load details</h3>
+          <hr>
+          <div class="col-md-6">
+            <span class="input-title">
+              Loan Amount
+            </span>
+            <input type="text" />
+          </div>
+          <div class="col-md-6">
+            <span class="input-title">
+              Loan Term
+            </span>
+            <input type="text" />
+          </div>
+          <p>Lorem ipsum dolor sit amos.</p>
         </div>
       </div>
 
@@ -71,5 +141,46 @@
     <script src="static/js/test-project.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="static/js/bootstrap3-ie10-viewport-bug-workaround/ie10-viewport-bug-workaround.js"></script>
+    <script src="static/js/nouislider/nouislider.js"></script>
+    <script>
+      var stepSliderAmount = document.getElementById('slider-step-amount');
+
+      noUiSlider.create(stepSliderAmount, {
+          start: [40000],
+          step: 10000,
+          range: {
+              'min': [10000],
+              'max': [100000]
+          }
+      });
+      
+      var stepSliderValueElementValue = document.getElementById('slider-step-amount-value');
+      stepSliderAmount.noUiSlider.on('update', function (values, handle) {
+          stepSliderValueElementValue.innerHTML = values[handle];
+      });
+   
+      
+      var stepSliderPeriod = document.getElementById('slider-step-duration');
+      noUiSlider.create(stepSliderPeriod, {
+          start: [18],
+          // step: 12,
+          snap: true,
+          range: {
+            'min': 12,
+            '18':  18,
+            '24':  24,
+            'max': 36,
+          }
+      });
+
+      var stepSliderValueElementPeriod = document.getElementById('slider-step-duration-value');
+      stepSliderPeriod.noUiSlider.on('update', function (values, handle) {
+          stepSliderValueElementPeriod.innerHTML = values[handle];
+      });
+      
+      
+      
+      
+    </script>
   </body>
 </html>

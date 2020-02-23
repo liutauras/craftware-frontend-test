@@ -1,7 +1,125 @@
 @import "bootstrap";
 /* add site style here */
 
-.header_box {
-    height: 863px;
+$pallete1_color: #F46113;
+
+$base-color1: $pallete1_color;
+$base-color1_lighten: lighten($base-color1, 10%);
+$base-color1_darken: darken($base-color1, 10%);
+
+
+$font-color1: #0E1C39;
+$font-color2: rgb(90, 90, 90);
+$font-color3: rgb(151, 151, 151);
+$base-font-color1: $font-color1;
+$base-font-color2: $font-color2; // dark
+$base-font-color3: $font-color3; // light
+$base-text-shadow: 1px 1px 1px rgba(110, 110, 110, 0.541);
+
+body {
+    color: $base-font-color1;
+}
+
+#header_box {
+    position: relative;
+    height: 700px;
     background-image: url('../images/header.png');
+    background-position: center bottom 0px;
+    .header_imageBike {
+        background-image: url('../images/bike.png');
+        width: 160px;
+        height: 145px;
+        position: absolute;
+        left: 6%;
+        bottom: 0px;
+    }
+    .header_imageBench {
+        background-image: url('../images/bench.png');
+        width: 160px;
+        height: 144px;
+        position: absolute;
+        bottom: -31px; 
+        left: 80%;
+    }
+    .header_imageCloud {
+        
+    }
+    
+    .header-video-box {
+        top: -58%;
+        transform: translateY(-58%);
+        z-index: 1;
+        overflow: hidden;
+        
+        .header-video {
+
+            border-radius: 25px; 
+            background-color: #12203A;
+            height: 400px;
+        }
+    }
+    
+    .header_quickForm_box {
+        position: relative;
+        z-index: 10;
+        .header_quickForm {
+            // position: absolute; BOOTSTRAP TPL USE position-absolute
+            top: 65%;
+            transform: translateY(65%);
+            padding: 25px;
+            border-radius: 25px; 
+            background-color: #ffffff;
+            box-shadow: 0 0 6px rgba(112, 112, 112, 0.5);
+            
+            .header_quickForm_title {
+                font-weight: 700;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            .header_quickForm_text {
+                padding: 15px 0 15px 0;
+                font-size: 18px;
+                color: $base-font-color2; 
+                font-weight: 500;
+            }
+            .header_slider_button_box{
+                margin-top: 20px;
+                .header_button_apply_now {
+                    padding: 17px 16px;
+                    width: 100%;
+                    border-radius: 28px;
+                    color: #fff;
+                    font-weight: 600;
+                    font-size: 22px;
+                    background-color: $base-color1;
+                    border-color: $base-color1_darken;
+                    &:hover {
+                        background-color: $base-color1_darken;
+                        border-color: $base-color1;
+                    }
+                }
+                p {
+                    padding: 15px 0;
+                    font-size: 14px;
+                    color: $base-font-color2; 
+                    font-weight: 500;
+                    //text-shadow: $base-text-shadow;
+                }
+            }
+            
+            .header_slider {
+                padding: 20px 0 20px 0;
+            }
+        }
+        
+        
+    }
+}
+.top_message {
+    background-color: #F3F3C1; 
+    .top_message_box {
+        padding: 27px 0 20px 0;
+        
+        
+    }
 }
