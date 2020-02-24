@@ -46,7 +46,7 @@
 
                     </div>
                     <div class="header_sliderLoanValue col-sm-4">
-                      <div id="slider-step-amount-value"></div>
+                      <div class="sliderValue" id="slider-step-amount-value"></div>
                     </div>
                   </div>
                   <div class="header_slider row">
@@ -56,7 +56,7 @@
                       <span class="glyphicon glyphicon-plus-sign" id="stepForwardTerm"></span>
                     </div>
                     <div class="header_sliderDurationValue col-sm-4">
-                      <div id="termSlider-value"></div>
+                      <div class="sliderValue" id="termSlider-value"></div>
                     </div>
                   </div>
                   <div class="header_slider_button_box row">
@@ -170,74 +170,30 @@
     <script src="static/js/bootstrap3-ie10-viewport-bug-workaround/ie10-viewport-bug-workaround.js"></script>
     <script src="static/js/nouislider/nouislider.js"></script>
     <script>
-      var stepSliderAmount = document.getElementById('slider-step-amount');
-
-      noUiSlider.create(stepSliderAmount, {
-          start: [40000],
-          step: 10000,
-          connect: 'lower',
-          range: {
-              'min': [10000],
-              'max': [100000]
-          }
-      });
-      
-      var stepSliderValueElementValue = document.getElementById('slider-step-amount-value');
-      stepSliderAmount.noUiSlider.on('update', function (values, handle) {
-          stepSliderValueElementValue.innerHTML = values[handle];
-      });
-      
-      
-      function manualStep (direction)
-      {
-        var currentPosition = parseInt(stepSliderAmount.noUiSlider.get());
-        var stepSize = 10000;
-        
-        if(direction == 'f'){
-          currentPosition += stepSize;
-        }
-        if(direction == 'b'){
-          currentPosition -= stepSize;
-        }
-        
-        currentPosition = (Math.round(currentPosition / stepSize) * stepSize);
-// alert('pushas'+currentPosition);
-        stepSliderAmount.noUiSlider.set(currentPosition);
-      }
-      document.getElementById('stepForwardAmount').onclick = function() {manualStep("f")};
-      document.getElementById('stepBackwardAmount').onclick = function() {manualStep("b")};
-      
-      
- 
-      
-      var stepSliderPeriod = document.getElementById('termSlider');
-      noUiSlider.create(stepSliderPeriod, {
-          start: [18],
-          // step: 12,
-          snap: true,
-          connect: 'lower',
-          range: {
-            'min': 12,
-            '18':  18,
-            '24':  24,
-            'max': 36,
-          }
-      });
-
-      var stepSliderValueElementPeriod = document.getElementById('termSlider-value');
-      stepSliderPeriod.noUiSlider.on('update', function (values, handle) {
-          stepSliderValueElementPeriod.innerHTML = values[handle];
-      });
-      
-     
       var termStepsHelper = {
         index: 1,
         terms_array: [
             12,
-            18,
+            18, // index points to this 1 element as slider too
             24,
             36
         ],
+        dec_terms: function(){
+          this.terms_array = [
+            24,
+            36
+          ];
+          this.index = 0;
+        },
+        restore_terms: function() {
+          this.terms_array = [
+            12,
+            18, // index points to this 1 element as slider too
+            24,
+            36
+          ];
+          this.index = 1;
+        },
         min: function() {
           return Math.min(this.terms_array);
         },
@@ -261,14 +217,124 @@
           return this.terms_array[this.index];
         }
       }
-    
+      
+      var renderValuesHelper = {
+        renderAmount: function(amount) {
+          // Create our number formatter.
+          var formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+          });
+          // formatter.format(amount); /* $2,500.00 */
+          amount = formatter.format(amount).replace(/\D00$/, '');
+
+          return amount;
+        },
+        
+        renderTerm: function(term) {
+          return parseInt(term) + ' months';
+        }
+      };
+      
+      
+      
+      var loanAmountSlider = document.getElementById('slider-step-amount');
+
+      noUiSlider.create(loanAmountSlider, {
+          start: [40000],
+          step: 10000,
+          connect: 'lower',
+          range: {
+              'min': [10000],
+              'max': [100000]
+          }
+      });
+      
+      var stepSliderValueElementValue = document.getElementById('slider-step-amount-value');
+      loanAmountSlider.noUiSlider.on('update', function (values, handle) {
+          stepSliderValueElementValue.innerHTML = renderValuesHelper.renderAmount(values[handle]);
+      });
+      
+      
+      function manualStep (direction)
+      {
+        var currentPosition = parseInt(loanAmountSlider.noUiSlider.get());
+        var stepSize = 10000;
+        
+        if(direction == 'f'){
+          currentPosition += stepSize;
+        }
+        if(direction == 'b'){
+          currentPosition -= stepSize;
+        }
+        
+        currentPosition = (Math.round(currentPosition / stepSize) * stepSize);
+// alert('pushas'+currentPosition);
+        loanAmountSlider.noUiSlider.set(currentPosition);
+      }
+      document.getElementById('stepForwardAmount').onclick = function() {manualStep("f")};
+      document.getElementById('stepBackwardAmount').onclick = function() {manualStep("b")};
+      
+      
+ 
+      
+      var loanPeriodSlider = document.getElementById('termSlider');
+      noUiSlider.create(loanPeriodSlider, {
+          start: [24],
+          // step: 12,
+          snap: true,
+          connect: 'lower',
+          range: {
+            'min': 12,
+            '18':  18,
+            '24':  24,
+            'max': 36,
+          }
+      });
+      
+      loanAmountSlider.noUiSlider.on('update', function (values, handle) {
+        console.log('values[hangle]'+values[handle]);
+        if(values[handle] >= 50000 ) {
+          //&& termStepsHelper.terms_array.length > 2
+          termStepsHelper.dec_terms();
+          loanPeriodSlider.noUiSlider.set(24);
+          loanPeriodSlider.noUiSlider.updateOptions({range: {
+            'min': 24,
+            'max': 36
+            }
+          });
+          document.getElementById('termSlider-value').innerHTML = renderValuesHelper.renderTerm(loanPeriodSlider.noUiSlider.get());
+        } else {
+          // if(termStepsHelper.terms_array.length < 4) {
+            termStepsHelper.restore_terms();
+            loanPeriodSlider.noUiSlider.set(24);
+            loanPeriodSlider.noUiSlider.updateOptions({range: {
+              'min': 12,
+              '18':  18,
+              '24':  24,
+              'max': 36
+              }
+            });
+            document.getElementById('termSlider-value').innerHTML = renderValuesHelper.renderTerm(loanPeriodSlider.noUiSlider.get());
+          // }
+        }
+      });
+
+      var stepSliderValueElementPeriod = document.getElementById('termSlider-value');
+      loanPeriodSlider.noUiSlider.on('update', function (values, handle) {
+          stepSliderValueElementPeriod.innerHTML = renderValuesHelper.renderTerm(values[handle]);
+      });
+      
+     
+      
+
       function incRateSlider(e){
         if(e){ e.preventDefault(); }
         var id = $(e.target).attr("id");
         var dir = 1;
-        if(id == "stepBackwardTerm"){ dir = -1; }   
+        if(id == "stepBackwardTerm"){ dir = -1; }
         // console.log('id:' + id);
-        // console.log('before value'+termStepsHelper.value());    
+        // console.log('before value'+termStepsHelper.value());
 
         if(dir > 0) {
           termStepsHelper.inc();
