@@ -2,11 +2,13 @@
 /* add site style here */
 
 $pallete1_color: #F46113;
+$pallete2_color: #04B5AB;
+
 
 $base-color1: $pallete1_color;
 $base-color1_lighten: lighten($base-color1, 10%);
 $base-color1_darken: darken($base-color1, 10%);
-
+$base-color2: $pallete2_color;
 
 $font-color1: #0E1C39;
 $font-color2: rgb(90, 90, 90);
@@ -84,20 +86,6 @@ body {
             }
             .header_slider_button_box{
                 margin-top: 20px;
-                .header_button_apply_now {
-                    padding: 17px 16px;
-                    width: 100%;
-                    border-radius: 28px;
-                    color: #fff;
-                    font-weight: 600;
-                    font-size: 22px;
-                    background-color: $base-color1;
-                    border-color: $base-color1_darken;
-                    &:hover {
-                        background-color: $base-color1_darken;
-                        border-color: $base-color1;
-                    }
-                }
                 p {
                     padding: 15px 0;
                     font-size: 14px;
@@ -109,10 +97,65 @@ body {
             
             .header_slider {
                 padding: 20px 0 20px 0;
+                .noUi-connect {
+                    background: $base-color1; 
+                }
+                .noUi-target {
+                    display: inline-block;
+                    width: 75%;
+                }
+                #stepBackwardAmount, #stepForwardAmount,
+                #stepBackwardTerm, #stepForwardTerm {
+                    display: inline-block;
+                    font-size: 22px;
+                    color: $base-color1; 
+                }
+                #stepBackwardAmount, #stepBackwardTerm {
+                    color: $base-color1; 
+                    padding: 0 14px 0 0;
+                }
+                #stepForwardAmount, #stepForwardTerm {
+                    color: $base-color1;
+                    padding: 0 0 0 14px; 
+                }
+                .noUi-handle {
+                    border-radius: 58px;
+                    background-color: $base-color2;
+                    box-shadow: transparent;
+                    border: 3px solid #ffffff;
+                }
+                .noUi-handle {
+                    box-shadow: transparent !important;
+                }
+                .noUi-handle:before, .noUi-handle:after {
+                    background: #00000000;
+                }
+                .noUi-horizontal .noUi-handle {
+                    width: 35px;
+                    height: 35px;
+                    left: 10px;
+                    top: -10px;
+                }
             }
         }
         
         
+    }
+}
+
+.header_button_apply_now, .details_button_next {
+    padding: 17px 16px;
+    width: 100%;
+    border-radius: 28px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 22px;
+    background-color: $base-color1;
+    border-color: $base-color1_darken;
+    &:hover, &:active, &:focus {
+        background-color: $base-color1_darken;
+        border-color: $base-color1;
+        color: #ffffff;
     }
 }
 .top_message {
@@ -123,3 +166,4 @@ body {
         
     }
 }
+
