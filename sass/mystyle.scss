@@ -58,15 +58,6 @@ section {
         bottom: 0px;
         z-index: $zindex_bike_chair;
     }
-    .header_imageBench {
-        background-image: url('../images/bench.png');
-        width: 160px;
-        height: 144px;
-        position: absolute;
-        bottom: -31px; 
-        left: 80%;
-        z-index: $zindex_bike_chair;
-    }
    
     .header_imageCloud1 {
         // position: absolute;
@@ -319,7 +310,15 @@ section {
     background-color: #F3F3C1; 
     .top_message_box {
         padding: 27px 0 20px 0;
-        
+        .header_imageBench {
+            background-image: url('../images/bench.png');
+            width: 160px;
+            height: 144px;
+            position: absolute;
+            top: 587px;
+            left: 80%;
+            z-index: $zindex_bike_chair;
+        }
         
     }
 }
@@ -330,7 +329,16 @@ section {
         height: 700px;
     }
     #header_box .header_quickForm_box {
-        top: -40%;
+        top: -0%;
+    }
+}
+
+@media(max-width:600px) {
+    #header_box {
+        height: 700px;
+    }
+    #header_box .header_quickForm_box {
+        top: -30%;
     }
 }
 
