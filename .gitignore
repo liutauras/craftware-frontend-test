@@ -13,7 +13,12 @@
 /node_modules
 
 /.sass-cache
-/static
+/static/css
+/static/fonts
+/static/images
+/static/js/bootstrap*
+/static/js/nouislider
+
 *.map
 package-lock.json
 package.json
