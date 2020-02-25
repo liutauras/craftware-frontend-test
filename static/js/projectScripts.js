@@ -254,16 +254,11 @@
         
         if(errors.length) {
             // output errors here
-            var first_error_to_focus = true;
             for(const error of errors) {
                 document.querySelector(error.error_id).innerHTML = error.message;
                 // document.querySelector(error.input_id);
                 var input = document.querySelector(error.input_id);
                 input.classList.add("input_error");
-                if(first_error_to_focus) {
-                    input.focus();
-                    first_error_to_focus = false;
-                }
             }
         } else {
             e.preventDefault();
@@ -313,5 +308,39 @@
         return isValid;
     }
     
-})(); // this invokes the function for you
+    
+    /**
+     * 
+     * 
+     * clouds animation
+     * 
+     * 
+     */
+    var cloud1 = document.querySelector(".header_imageCloud1");
+    var cloud2 = document.querySelector(".header_imageCloud2");
+    var currPosition1 = parseInt(cloud1.offsetLeft, 10);
+    var currPosition2 = parseInt(cloud2.offsetLeft, 10);
+    // console.log('currPosition1 :' + cloud1.offsetLeft);
+    // console.log('currPosition2 :' + cloud2.offsetLeft);
+    let start = Date.now(); // remember start time
+
+    let timer = setInterval(function() {
+        // how much time passed from the start?
+        let timePassed = Date.now() - start;
+
+        if((currPosition1 + timePassed / 10) > (1920 + 110)) {
+            currPosition1 = -200;
+            currPosition2 = -100;
+            start = Date.now(); // remember start time
+        }
+        // draw the animation at the moment timePassed
+        draw(timePassed);
+    }, 20);
+
+    function draw(timePassed) {
+        cloud1.style.left = currPosition1 + timePassed / 10 + 'px';
+        cloud2.style.left = currPosition2 + timePassed / 10 + 'px';
+    }
+    
+})(); // this invokes the functions
     
