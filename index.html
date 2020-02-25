@@ -60,7 +60,8 @@
                     </div>
                   </div>
                   <div class="header_slider_button_box row">
-                    <div class="col-sm-6"><a class="btn btn-primary btn-lg header_button_apply_now" href="#" role="button">Apply Now</a></div>
+                    <div class="col-sm-6"><a class="btn btn-primary btn-lg header_button_apply_now" href="#" role="button" onclick="document.location+='#goToYourDetailsBox';return false;" 
+                      >Apply Now</a></div>
                     <div class="col-sm-6"><p>Lorem ipsum dolem lorem</p></div>
                   </div>
                 </div>
@@ -94,7 +95,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="text-center">
-              <h2>Heading</h2>
+              <h2>Heading message sit inum</h2>
             </div>
             
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
@@ -119,62 +120,67 @@
              </div>
           </div>
         </div>
-        <div class="loan-details-box">
-          <div class="row">
-            <h4>Loan details</h4>
-            <hr>
-            <div class="col-md-6">
-              <label for="loan-details-loan-amount-value">Loan Amount</label>
-              <div class="inner-addon right-addon">
-                <i class="ok-icon-mark glyphicon glyphicon-chevron-down"></i>
-                <input type="text" class="form-control" id="loan-details-loan-amount-value"  readonly />
-              </div>
-              
-            </div>
-            <div class="col-md-6">
-              <label for="loan-details-loan-term-value">Loan Term</label>
-              <div class="inner-addon right-addon">
-                <i class="ok-icon-mark glyphicon glyphicon-chevron-down"></i>
-                <input type="text" class="form-control" id="loan-details-loan-term-value" readonly />
-              </div>
-            </div>
-            <div class="col-md-12">
-              <p>Lorem ipsum dolor sit amos.</p>
-            </div>
-          </div>
-        </div>
-        
-        <h3>Your details</h3>
-        <hr>
         <form name="yourDetailsForm" class="yourLoanDetailsForm" id="yourDetailsForm" action="/" method="POST">
-          <div class="form-group">
-            <label for="your_details_full_name">Full name</label>
-            <input type="text" class="form-control" id="your_details_full_name" name="your_details_full_name" placeholder="Your name">
-            <div class="input_error_message error" id="error_your_details_full_name"></div>
-          </div>
-          <div class="form-group">
-            <label for="your_details_mobile_number">Mobile Number</label>
-            <input type="text" class="form-control" id="your_details_mobile_number" name="your_details_mobile_number" placeholder="+37067212345">
-            <div class="input_error_message error" id="error_your_details_mobile_number"></div>
-          </div>
-          <div class="form-group">
-            <label for="your_details_email">Email</label>
-            <input type="email" class="form-control" id="your_details_email" name="your_details_email" placeholder="E-mail">
-            <div class="input_error_message error" id="error_your_details_email"></div>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" name="your_details_checkbox" id="your_details_checkbox"><p>Lorem ipsum dolor sit amos.Lorem ipsum dolor sit amos.Lorem ipsum dolor sit amos. <span class="glyphicon glyphicon-question-sign" id=""></span></p>
-              <div class="input_error_message error" id="error_your_details_checkbox"></div>
-            </label>
-          </div>
-          <button type="submit" class="btn btn-default details_button_next">Next</button>
-        </form>
         
+          <div class="loan-details-box">
+            <div class="row">
+              <a name="goToYourDetailsBox"></a>
+              <h4>Loan details</h4>
+              <hr>
+              <div class="col-md-6">
+                <label for="loan-details-loan-amount-value">Loan Amount</label>
+                <div class="inner-addon right-addon">
+                  <i class="ok-icon-mark glyphicon glyphicon-chevron-down"></i>
+                  <input type="text" class="form-control" id="loan-details-loan-amount-value"  readonly />
+                </div>
+                
+              </div>
+              <div class="col-md-6">
+                <label for="loan-details-loan-term-value">Loan Term</label>
+                <div class="inner-addon right-addon">
+                  <i class="ok-icon-mark glyphicon glyphicon-chevron-down"></i>
+                  <input type="text" class="form-control" id="loan-details-loan-term-value" readonly />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <p>Lorem ipsum dolor sit amos.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="your-details-box">
+            <h4>Your details</h4>
+            <hr>
+            
+              <div class="form-group">
+                <label for="your_details_full_name">Full name</label>
+                <input type="text" class="form-control" id="your_details_full_name" name="your_details_full_name" placeholder="Your name">
+                <div class="input_error_message error" id="error_your_details_full_name"></div>
+              </div>
+              <div class="form-group">
+                <label for="your_details_mobile_number">Mobile Number</label>
+                <input type="text" class="form-control" id="your_details_mobile_number" name="your_details_mobile_number" placeholder="+37067212345">
+                <div class="input_error_message error" id="error_your_details_mobile_number"></div>
+              </div>
+              <div class="form-group">
+                <label for="your_details_email">Email</label>
+                <input type="email" class="form-control" id="your_details_email" name="your_details_email" placeholder="E-mail">
+                <div class="input_error_message error" id="error_your_details_email"></div>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="your_details_checkbox" id="your_details_checkbox"><p>Lorem ipsum dolor sit amos.Lorem ipsum dolor sit amos.Lorem ipsum dolor sit amos. <span class="glyphicon glyphicon-question-sign" id=""></span></p>
+                  <div class="input_error_message error" id="error_your_details_checkbox"></div>
+                </label>
+              </div>
+              <button type="submit" class="btn btn-default details_button_next">Next</button>
+          </div>
+        </form>
+
         <hr>
 
         <footer>
-          <p>&copy; 2016 Company, Inc.</p>
+          <p>&copy; 2020 Company, Inc.</p>
         </footer>
       </div>
     </div> <!-- /container -->

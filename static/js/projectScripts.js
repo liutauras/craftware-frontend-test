@@ -267,7 +267,7 @@
             }
         } else {
             e.preventDefault();
-            alert('Congrats for is valid');
+            alert('Congrats form is valid');
         }
     }
     
