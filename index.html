@@ -88,64 +88,80 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container pagecontent">
       <div class="col-md-offset-2 col-md-6">
         <!-- Example row of columns -->
         <div class="row">
           <div class="col-md-12">
-            <h2>Heading</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <div class="text-center">
+              <h2>Heading</h2>
+            </div>
+            
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+              <span class="glyphicon glyphicon-question-sign" id=""></span> </p>
           </div>
         </div>
-        <div class="row">
+        <div class="row small-texts-and-icons">
           <div class="col-md-6">
-            <ul->
-              <li>V</li>
-              <li>adasd asd asd</li>
-            </ul->
+            <div class="icon-box text-center">
+              <span class="glyphicon glyphicon-ok ok-icon-mark" id=""></span>
+            </div>
+            <div class="icon-subtext text-center">
+              Lorem ipsum do lem.
+            </div>
           </div>
-          <div class="col-md-6">
-            <ul->
-              <li>V</li>
-              <li>adasd asd asd</li>
-            </ul->
+          <div class="col-md-6 text-center">
+            <div class="icon-box">
+              <span class="glyphicon glyphicon-ok ok-icon-mark" id=""></span>
+             </div>
+             <div class="icon-subtext text-center">
+               Lorem ipsum do lem.
+             </div>
           </div>
         </div>
-        <div class="loan-calc-result-box">
+        <div class="loan-details-box">
           <div class="row">
-            <h3>Load details</h3>
+            <h4>Loan details</h4>
             <hr>
             <div class="col-md-6">
-              <label for="loan-amount-value">Loan Amount</label>
-              <input type="text" class="form-control" id="loan-amount-value" />
+              <label for="loan-details-loan-amount-value">Loan Amount</label>
+              <div class="inner-addon right-addon">
+                <i class="ok-icon-mark glyphicon glyphicon-chevron-down"></i>
+                <input type="text" class="form-control" id="loan-details-loan-amount-value"  readonly />
+              </div>
+              
             </div>
             <div class="col-md-6">
-              <span class="input-title">
-                Loan Term
-              </span>
-              <input type="text" class="form-control" />
+              <label for="loan-details-loan-term-value">Loan Term</label>
+              <div class="inner-addon right-addon">
+                <i class="ok-icon-mark glyphicon glyphicon-chevron-down"></i>
+                <input type="text" class="form-control" id="loan-details-loan-term-value" readonly />
+              </div>
             </div>
-            <p>Lorem ipsum dolor sit amos.</p>
+            <div class="col-md-12">
+              <p>Lorem ipsum dolor sit amos.</p>
+            </div>
           </div>
         </div>
         
         <h3>Your details</h3>
+        <hr>
         <form>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            <label for="your_details_full_name">Full name</label>
+            <input type="text" class="form-control" id="your_details_full_name" placeholder="Your name">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <label for="your_details_mobile_number">Mobile Number</label>
+            <input type="text" class="form-control" id="your_details_mobile_number" placeholder="+37067212345">
           </div>
           <div class="form-group">
-            <label for="emaol">Email</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="E-mail">
+            <label for="your_details_email">Email</label>
+            <input type="email" class="form-control" id="your_details_email" placeholder="E-mail">
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox"> Lorem ipsum dolor sit amos.Lorem ipsum dolor sit amos.Lorem ipsum dolor sit amos.
+              <input type="checkbox" name="your_details_checkbox"> Lorem ipsum dolor sit amos.Lorem ipsum dolor sit amos.Lorem ipsum dolor sit amos.
             </label>
           </div>
           <button type="submit" class="btn btn-default details_button_next">Next</button>
@@ -169,189 +185,6 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="static/js/bootstrap3-ie10-viewport-bug-workaround/ie10-viewport-bug-workaround.js"></script>
     <script src="static/js/nouislider/nouislider.js"></script>
-    <script>
-      var termStepsHelper = {
-        index: 1,
-        terms_array: [
-            12,
-            18, // index points to this 1 element as slider too
-            24,
-            36
-        ],
-        dec_terms: function(){
-          this.terms_array = [
-            24,
-            36
-          ];
-          this.index = 0;
-        },
-        restore_terms: function() {
-          this.terms_array = [
-            12,
-            18, // index points to this 1 element as slider too
-            24,
-            36
-          ];
-          this.index = 1;
-        },
-        min: function() {
-          return Math.min(this.terms_array);
-        },
-        max: function() {
-          return Math.max(this.terms_array);
-        },
-        inc: function() {
-          this.index++;
-          if(this.index >= this.terms_array.length-1) {
-            this.index = this.terms_array.length-1;
-          }
-        },
-        dec: function() {
-          this.index--;
-          if(this.index < 0) {
-            this.index = 0;
-          }
-        },
-        value: function() {
-          // console.log('value index:' + this.index);
-          return this.terms_array[this.index];
-        }
-      }
-      
-      var renderValuesHelper = {
-        renderAmount: function(amount) {
-          // Create our number formatter.
-          var formatter = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD',
-          });
-          // formatter.format(amount); /* $2,500.00 */
-          amount = formatter.format(amount).replace(/\D00$/, '');
-
-          return amount;
-        },
-        
-        renderTerm: function(term) {
-          return parseInt(term) + ' months';
-        }
-      };
-      
-      
-      
-      var loanAmountSlider = document.getElementById('slider-step-amount');
-
-      noUiSlider.create(loanAmountSlider, {
-          start: [40000],
-          step: 10000,
-          connect: 'lower',
-          range: {
-              'min': [10000],
-              'max': [100000]
-          }
-      });
-      
-      var stepSliderValueElementValue = document.getElementById('slider-step-amount-value');
-      loanAmountSlider.noUiSlider.on('update', function (values, handle) {
-          stepSliderValueElementValue.innerHTML = renderValuesHelper.renderAmount(values[handle]);
-      });
-      
-      
-      function manualStep (direction)
-      {
-        var currentPosition = parseInt(loanAmountSlider.noUiSlider.get());
-        var stepSize = 10000;
-        
-        if(direction == 'f'){
-          currentPosition += stepSize;
-        }
-        if(direction == 'b'){
-          currentPosition -= stepSize;
-        }
-        
-        currentPosition = (Math.round(currentPosition / stepSize) * stepSize);
-// alert('pushas'+currentPosition);
-        loanAmountSlider.noUiSlider.set(currentPosition);
-      }
-      document.getElementById('stepForwardAmount').onclick = function() {manualStep("f")};
-      document.getElementById('stepBackwardAmount').onclick = function() {manualStep("b")};
-      
-      
- 
-      
-      var loanPeriodSlider = document.getElementById('termSlider');
-      noUiSlider.create(loanPeriodSlider, {
-          start: [24],
-          // step: 12,
-          snap: true,
-          connect: 'lower',
-          range: {
-            'min': 12,
-            '18':  18,
-            '24':  24,
-            'max': 36,
-          }
-      });
-      
-      loanAmountSlider.noUiSlider.on('update', function (values, handle) {
-        console.log('values[hangle]'+values[handle]);
-        if(values[handle] >= 50000 ) {
-          //&& termStepsHelper.terms_array.length > 2
-          termStepsHelper.dec_terms();
-          loanPeriodSlider.noUiSlider.set(24);
-          loanPeriodSlider.noUiSlider.updateOptions({range: {
-            'min': 24,
-            'max': 36
-            }
-          });
-          document.getElementById('termSlider-value').innerHTML = renderValuesHelper.renderTerm(loanPeriodSlider.noUiSlider.get());
-        } else {
-          // if(termStepsHelper.terms_array.length < 4) {
-            termStepsHelper.restore_terms();
-            loanPeriodSlider.noUiSlider.set(24);
-            loanPeriodSlider.noUiSlider.updateOptions({range: {
-              'min': 12,
-              '18':  18,
-              '24':  24,
-              'max': 36
-              }
-            });
-            document.getElementById('termSlider-value').innerHTML = renderValuesHelper.renderTerm(loanPeriodSlider.noUiSlider.get());
-          // }
-        }
-      });
-
-      var stepSliderValueElementPeriod = document.getElementById('termSlider-value');
-      loanPeriodSlider.noUiSlider.on('update', function (values, handle) {
-          stepSliderValueElementPeriod.innerHTML = renderValuesHelper.renderTerm(values[handle]);
-      });
-      
-     
-      
-
-      function incRateSlider(e){
-        if(e){ e.preventDefault(); }
-        var id = $(e.target).attr("id");
-        var dir = 1;
-        if(id == "stepBackwardTerm"){ dir = -1; }
-        // console.log('id:' + id);
-        // console.log('before value'+termStepsHelper.value());
-
-        if(dir > 0) {
-          termStepsHelper.inc();
-        } else if(dir < 0) {
-          termStepsHelper.dec();
-        }
-        // console.log('new value'+termStepsHelper.value());    
-        var newval = termStepsHelper.value();// add or subtract values
-        
-        var slider = document.getElementById('termSlider');
-        slider.noUiSlider.set(newval); //this sets the value for the slider "super necessary"
-        //setInterestSliderDisplay(newval);  
-}
-      document.getElementById('stepForwardTerm').onclick = function(e) {incRateSlider(e)};
-      document.getElementById('stepBackwardTerm').onclick = function(e) {incRateSlider(e)};      
-      
-      
-    </script>
+    <script src="static/js/projectScripts.js"></script>
   </body>
 </html>

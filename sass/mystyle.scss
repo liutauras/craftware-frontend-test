@@ -3,12 +3,13 @@
 
 $pallete1_color: #F46113;
 $pallete2_color: #04B5AB;
-
+$pallete3_color: #0E1C39;
 
 $base-color1: $pallete1_color;
 $base-color1_lighten: lighten($base-color1, 10%);
 $base-color1_darken: darken($base-color1, 10%);
 $base-color2: $pallete2_color;
+$base-color3: $pallete3_color;
 
 $font-color1: #0E1C39;
 $font-color2: rgb(90, 90, 90);
@@ -20,6 +21,11 @@ $base-text-shadow: 1px 1px 1px rgba(110, 110, 110, 0.541);
 
 body {
     color: $base-font-color1;
+}
+
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 #header_box {
@@ -100,9 +106,16 @@ body {
                 .noUi-connect {
                     background: $base-color1; 
                 }
+                #stepBackwardAmount, 
+                #stepBackwardTerm,
+                #stepForwardAmount,
+                #stepForwardTerm
+                {
+                    width: 10%;
+                }
                 .noUi-target {
                     display: inline-block;
-                    width: 75%;
+                    width: 60%;
                 }
                 #stepBackwardAmount, #stepForwardAmount,
                 #stepBackwardTerm, #stepForwardTerm {
@@ -133,7 +146,7 @@ body {
                 .noUi-horizontal .noUi-handle {
                     width: 35px;
                     height: 35px;
-                    left: 10px;
+                    left: 3px;
                     top: -10px;
                 }
             }
@@ -143,6 +156,69 @@ body {
         }
         
         
+    }
+}
+
+.pagecontent {
+    h2 {
+        margin-top: 50px;
+    }
+    p {
+        margin-top: 30px;
+        .glyphicon-question-sign {
+            color: $base-color2;
+        }
+    }
+    .small-texts-and-icons {
+        margin-top: 30px;
+        .ok-icon-mark {
+            color: $base-color1;
+            font-size: 22px;
+        }
+    }
+    .loan-details-box {
+        background-color: $base-color3;
+        border-radius: 25px;
+        margin-top: 50px;
+        color: #ffffff;
+        padding: 15px;
+        input {
+            border-radius: 28px;
+            font-weight: 800;
+        }
+        .form-control[disabled], 
+        .form-control[readonly] {
+            cursor: not-allowed;
+            background-color: #ffffff;
+        }
+        label {
+            font-weight: 400;
+        }
+        p {
+            margin-top: 10px;
+            font-size: 12px;
+        }
+        
+        /* enable absolute positioning */
+        .inner-addon { 
+            position: relative; 
+        }
+
+        /* style icon */
+        .inner-addon .glyphicon {
+            position: absolute;
+            padding: 10px;
+            pointer-events: none;
+            color: $base-color2;
+        }
+
+        /* align icon */
+        .left-addon .glyphicon  { left:  0px;}
+        .right-addon .glyphicon { right: 0px;}
+
+        /* add padding  */
+        .left-addon input  { padding-left:  30px; }
+        .right-addon input { padding-right: 30px; }
     }
 }
 
