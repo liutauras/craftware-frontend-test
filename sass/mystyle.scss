@@ -220,6 +220,27 @@ body {
         .left-addon input  { padding-left:  30px; }
         .right-addon input { padding-right: 30px; }
     }
+    
+    .yourLoanDetailsForm {
+        .form-control {
+            font-size: 20px;
+            padding: 28px 20px;
+            border-radius: 30px;
+        }
+        .input_error_message {
+            color: #f00;
+            font-size: 14px;
+            padding-left: 20px;
+            font-weight: 600;
+        }
+        .input_error {
+            background-color: #F2DEDF;
+            color: #A8464E;
+        }
+        p {
+            margin-top: 0;
+        }
+    }
 }
 
 .header_button_apply_now, .details_button_next {
